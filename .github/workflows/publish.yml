@@ -22,8 +22,13 @@ jobs:
           cd emsdk
           ./emsdk install latest
           ./emsdk activate latest
-          export PATH=`pwd`:`pwd`/upstream/emscripten/:`echo node/*`/bin:$PATH
+          export PATH=`pwd`:`pwd`/upstream/emscripten/:`echo node/*`/bin/:$PATH
+          ls `pwd`
+          ls `pwd`/upstream/emscripten/
+          ls `echo node/*`/bin/
           cd ..
+
+          echo $PATH
 
           ./run.sh
           rm build/web
