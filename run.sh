@@ -2,4 +2,7 @@
 echo "Hello world!"
 
 apk add --repository http://dl-cdn.alpinelinux.org/alpine/edge/testing emscripten
-emcmake
+mkdir build && cd build
+emcmake cmake ..
+make
+cd -
