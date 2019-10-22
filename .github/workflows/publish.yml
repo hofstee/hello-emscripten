@@ -16,6 +16,15 @@ jobs:
 
       - name: First step
         run: |
+          apk add -q cmake make
+
+          git clone --depth 1 --branch master --single-branch https://github.com/emscripten-core/emsdk.git
+          cd emsdk
+          ./emsdk install latest
+          ./emsdk activate latest
+          source ./emsdk_env.sh
+          cd-
+
           ./run.sh
           rm build/web
 
