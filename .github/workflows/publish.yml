@@ -12,7 +12,10 @@ jobs:
         with:
           fetch-depth: 1
 
+      - name: test
+        run: ls
+
       - name: First step
         uses: docker://alpine:3.10
         with:
-          entrypoint: run.sh
+          entrypoint: hello-emscripten/run.sh
