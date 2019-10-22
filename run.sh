@@ -1,10 +1,9 @@
 #!/bin/sh -l
-echo "Hello world!"
-
-apk add --repository http://dl-cdn.alpinelinux.org/alpine/edge/testing cmake emscripten make
+apk add -q --repository http://dl-cdn.alpinelinux.org/alpine/edge/testing cmake emscripten make
 mkdir build && cd build
 
-ls /usr/bin/
+cmake --version
+emcc --version
 
 emcmake cmake ..
 make

@@ -12,9 +12,6 @@ add_custom_command(TARGET index PRE_BUILD
 target_link_libraries(index PUBLIC
   "--shell-file web/shell.html"
 
-  "-s ENVIRONMENT=web"
-  "-s WASM=1"
-
   # Debug flags
   "-g3"
   "-s DEMANGLE_SUPPORT=1"
