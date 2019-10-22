@@ -16,6 +16,7 @@ jobs:
 
       - name: First step
         run: |
+          . /emsdk_portable/emsdk_set_env.sh
           # git clone -q --depth 1 --branch master --single-branch https://github.com/emscripten-core/emsdk.git
           # pushd .
           # cd emsdk
