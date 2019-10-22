@@ -1,0 +1,3 @@
+/home/runner/work/hello-emscripten/hello-emscripten/build/CMakeFiles/rebuild_cache.dir
+/home/runner/work/hello-emscripten/hello-emscripten/build/CMakeFiles/edit_cache.dir
+/home/runner/work/hello-emscripten/hello-emscripten/build/CMakeFiles/index.dir

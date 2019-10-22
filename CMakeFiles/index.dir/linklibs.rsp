@@ -1,0 +1,1 @@
+--shell-file web/shell.html -s ENVIRONMENT="'web'" -s WASM=1 -g3 -s DEMANGLE_SUPPORT=1 -s ASSERTIONS=2 
