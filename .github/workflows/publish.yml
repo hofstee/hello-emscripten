@@ -4,10 +4,8 @@ on: [push]
 jobs:
   build:
     runs-on: ubuntu-latest
-    container:
-      image: docker://alpine:edge
-      env:
-        EM_USE_GLOBAL_CACHE: 1
+    env:
+      EM_USE_GLOBAL_CACHE: 1
 
     steps:
       - uses: actions/checkout@master
@@ -16,20 +14,11 @@ jobs:
 
       - name: First step
         run: |
-          apk add -q \
-          --repository http://dl-cdn.alpinelinux.org/alpine/edge/testing \
-          --repository http://dl-cdn.alpinelinux.org/alpine/edge/community \
-          cmake emscripten-fastcomp git make python
-
-          # git clone -q --depth 1 --branch master --single-branch https://github.com/emscripten-core/emsdk.git
-          # cd emsdk
-          # ./emsdk install latest
-          # ./emsdk activate latest
-          # export PATH=`pwd`:`pwd`/upstream/emscripten:`pwd`/`echo node/*`/bin:$PATH
-          # ls `pwd`
-          # ls -al `pwd`/upstream/emscripten
-          # ls `pwd`/`echo node/*`/bin
-          # cd ..
+          git clone -q --depth 1 --branch master --single-branch https://github.com/emscripten-core/emsdk.git
+          cd emsdk
+          ./emsdk install latest
+          ./emsdk activate latest
+          source ./emsdk_env.sh
 
           ./run.sh
           rm build/web
