@@ -1,5 +1,8 @@
 name: publish
-on: [push]
+on:
+  push:
+    branches:
+      - master
 
 jobs:
   build:
@@ -30,3 +33,10 @@ jobs:
         with:
           name: test
           path: build
+
+      - name: Deploy
+        uses: peaceiris/actions-gh-pages@v2.5.0
+        env:
+          ACTIONS_DEPLOY_KEY: ${{ secrets.ACTIONS_DEPLOY_KEY }}
+          PUBLISH_BRANCH: gh-pages
+          PUBLISH_DIR: build
