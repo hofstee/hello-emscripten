@@ -16,6 +16,7 @@ jobs:
 
       - name: First step
         run: |
+          cat /etc/apt/sources.list
           apt install cmake git make
 
           git clone --depth 1 --branch master --single-branch https://github.com/emscripten-core/emsdk.git
