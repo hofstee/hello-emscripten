@@ -5,7 +5,7 @@ jobs:
   build:
     runs-on: ubuntu-latest
     container:
-      image: docker://debian:9
+      image: docker://alpine:edge
       env:
         EM_USE_GLOBAL_CACHE: 1
 
@@ -16,8 +16,9 @@ jobs:
 
       - name: First step
         run: |
-          apt update -y
-          apt install -y cmake git make python
+          tar --version
+          which xz
+          apk add -q cmake git make python xz
 
           git clone --depth 1 --branch master --single-branch https://github.com/emscripten-core/emsdk.git
           cd emsdk
