@@ -15,4 +15,4 @@ jobs:
       - name: First step
         uses: docker://alpine:3.10
         with:
-          entrypoint: ls
+          entrypoint: ./run.sh
