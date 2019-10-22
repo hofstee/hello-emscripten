@@ -15,10 +15,12 @@ jobs:
       - name: First step
         run: |
           git clone -q --depth 1 --branch master --single-branch https://github.com/emscripten-core/emsdk.git
+          pushd .
           cd emsdk
           ./emsdk install latest
           ./emsdk activate latest
           source ./emsdk_env.sh
+          popd
 
           ./run.sh
           rm build/web
