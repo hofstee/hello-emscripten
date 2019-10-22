@@ -4,8 +4,10 @@ on: [push]
 jobs:
   build:
     runs-on: ubuntu-latest
-    env:
-      EM_USE_GLOBAL_CACHE: 1
+    container:
+      image: docker://alpine:edge
+      env:
+        EM_USE_GLOBAL_CACHE: 1
 
     steps:
       - uses: actions/checkout@master
@@ -14,7 +16,7 @@ jobs:
 
       - name: First step
         run: |
-          pip3 install cmake
+          apk add -q cmake git make python
 
           git clone --depth 1 --branch master --single-branch https://github.com/emscripten-core/emsdk.git
           cd emsdk
