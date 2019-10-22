@@ -4,8 +4,8 @@ on: [push]
 jobs:
   build:
     runs-on: ubuntu-latest
-    container: trzeci/emscripten-slim:latest
-    with:
+    container:
+      image: trzeci/emscripten-slim:latest
       env:
         EM_USE_GLOBAL_CACHE: 1
 
