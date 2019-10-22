@@ -1,4 +1,4 @@
-cmake_minimum_required(VERSION 3.14)
+cmake_minimum_required(VERSION 3.11)
 project(hello)
 
 set(CMAKE_EXECUTABLE_SUFFIX ".html")
@@ -11,6 +11,9 @@ add_custom_command(TARGET index PRE_BUILD
 
 target_link_libraries(index PUBLIC
   "--shell-file web/shell.html"
+
+  "-s ENVIRONMENT=\"'web'\""
+  "-s WASM=1"
 
   # Debug flags
   "-g3"
