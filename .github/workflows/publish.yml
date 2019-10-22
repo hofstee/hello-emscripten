@@ -18,11 +18,31 @@ jobs:
         run: |
           apk add -q cmake git make python tar xz
 
-          git clone --depth 1 --branch master --single-branch https://github.com/emscripten-core/emsdk.git
+          git clone -q --depth 1 --branch master --single-branch https://github.com/emscripten-core/emsdk.git
           cd emsdk
-          ./emsdk install latest
-          ./emsdk activate latest
+          echo
+          echo
+          echo
           pwd
+          echo
+          echo
+          echo
+          ./emsdk install latest
+          echo
+          echo
+          echo
+          pwd
+          echo
+          echo
+          echo
+          ./emsdk activate latest
+          echo
+          echo
+          echo
+          pwd
+          echo
+          echo
+          echo
           source ./emsdk_env.sh
           cd ..
 
