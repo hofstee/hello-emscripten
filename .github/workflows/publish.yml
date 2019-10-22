@@ -19,7 +19,7 @@ jobs:
           ./emsdk install latest
           ./emsdk activate latest
           source ./emsdk_env.sh
-          cd-
+          cd -
 
           ./run.sh
           rm build/web
