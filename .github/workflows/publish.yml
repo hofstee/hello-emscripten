@@ -15,7 +15,9 @@ jobs:
           fetch-depth: 1
 
       - name: First step
-        run: ./run.sh
+        run: |
+          ./run.sh
+          rm build/web
 
       - name: Upload artifact
         uses: actions/upload-artifact@master
