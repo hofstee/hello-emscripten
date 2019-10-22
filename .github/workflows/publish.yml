@@ -22,7 +22,7 @@ jobs:
           cd emsdk
           ./emsdk install latest
           ./emsdk activate latest
-          . ./emsdk_env.sh
+          export PATH=`pwd`:`pwd`/upstream/emscripten/:`echo node/*`/bin:$PATH
           cd ..
 
           ./run.sh
