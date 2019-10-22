@@ -17,7 +17,7 @@ jobs:
       - name: First step
         run: |
           apt update -y
-          apt install -y cmake git make
+          apt install -y cmake git make python
 
           git clone --depth 1 --branch master --single-branch https://github.com/emscripten-core/emsdk.git
           cd emsdk
