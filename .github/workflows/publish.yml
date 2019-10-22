@@ -16,9 +16,7 @@ jobs:
 
       - name: First step
         run: |
-          tar --version
-          which xz
-          apk add -q cmake git make python xz
+          apk add -q cmake git make python tar xz
 
           git clone --depth 1 --branch master --single-branch https://github.com/emscripten-core/emsdk.git
           cd emsdk
