@@ -4,10 +4,8 @@ on: [push]
 jobs:
   build:
     runs-on: ubuntu-latest
-    container:
-      image: docker://alpine:edge
-      env:
-        EM_USE_GLOBAL_CACHE: 1
+    env:
+      EM_USE_GLOBAL_CACHE: 1
 
     steps:
       - uses: actions/checkout@master
