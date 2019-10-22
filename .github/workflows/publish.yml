@@ -16,19 +16,20 @@ jobs:
 
       - name: First step
         run: |
-          apk add -q cmake git make python tar xz
+          apk add -q \
+          --repository http://dl-cdn.alpinelinux.org/alpine/edge/testing \
+          --repository http://dl-cdn.alpinelinux.org/alpine/edge/community \
+          cmake emscripten-fastcomp git make python
 
-          git clone -q --depth 1 --branch master --single-branch https://github.com/emscripten-core/emsdk.git
-          cd emsdk
-          ./emsdk install latest
-          ./emsdk activate latest
-          export PATH=`pwd`:`pwd`/upstream/emscripten/:`echo node/*`/bin/:$PATH
-          ls `pwd`
-          ls `pwd`/upstream/emscripten/
-          ls `echo node/*`/bin/
-          cd ..
-
-          echo $PATH
+          # git clone -q --depth 1 --branch master --single-branch https://github.com/emscripten-core/emsdk.git
+          # cd emsdk
+          # ./emsdk install latest
+          # ./emsdk activate latest
+          # export PATH=`pwd`:`pwd`/upstream/emscripten:`pwd`/`echo node/*`/bin:$PATH
+          # ls `pwd`
+          # ls -al `pwd`/upstream/emscripten
+          # ls `pwd`/`echo node/*`/bin
+          # cd ..
 
           ./run.sh
           rm build/web
