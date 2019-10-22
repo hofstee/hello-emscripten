@@ -4,8 +4,10 @@ on: [push]
 jobs:
   build:
     runs-on: ubuntu-latest
-    env:
-      EM_USE_GLOBAL_CACHE: 1
+    container: trzeci/emscripten-slim:latest
+    with:
+      env:
+        EM_USE_GLOBAL_CACHE: 1
 
     steps:
       - uses: actions/checkout@master
@@ -14,13 +16,13 @@ jobs:
 
       - name: First step
         run: |
-          git clone -q --depth 1 --branch master --single-branch https://github.com/emscripten-core/emsdk.git
-          pushd .
-          cd emsdk
-          ./emsdk install latest
-          ./emsdk activate latest
-          source ./emsdk_env.sh
-          popd
+          # git clone -q --depth 1 --branch master --single-branch https://github.com/emscripten-core/emsdk.git
+          # pushd .
+          # cd emsdk
+          # ./emsdk install latest
+          # ./emsdk activate latest
+          # source ./emsdk_env.sh
+          # popd
 
           ./run.sh
           rm build/web
